@@ -2,10 +2,12 @@ from typing import List, Tuple
 
 
 """
-Within the algorithm of Waterman, Smith and Beyer arbitrarily large gaps are considered. Thus, also the traceback has to investigate all gap sizes. This can be done following two strategies:
+Within the algorithm of Waterman, Smith and Beyer arbitrarily large gaps are 
+considered. Thus, also the traceback has to investigate all gap sizes. 
+This can be done following two strategies:
 
-check in increasing gap length (start with smallest gap)
-check in decreasing gap length (start with largest gap)
+ - check in increasing gap length (start with smallest gap)
+ - check in decreasing gap length (start with largest gap)
 """
 
 
