@@ -40,10 +40,10 @@ def exercise_1b():
     # yes, checking insertions first will perform better
     insertions_first = None
 
-    # checking in increasing direction performs better
+    # yes, checking deletions first will perform better
     deletions_first = None
 
-    # checking in decreasing direction performs better
+    # no, the order doesn't affect performance
     no = None
 
     # checking in an alternating way might improve performance
