@@ -82,4 +82,4 @@ P<sub>ij</sub> corresponds to gaps in S2)
 
 **c)** Calculate all optimal alignments and the according score!
 
-**d)** Are the expected alignments different when using the Waterman-Smith-Beyer algorithm instead?
+**d)** Calculate the alignments using the Waterman-Smith-Beyer algorithm instead.
