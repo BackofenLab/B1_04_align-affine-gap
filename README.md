@@ -43,7 +43,9 @@ Given the Waterman-Smith-Beyer algorithm with the following scoring function:
 
 Consider the following sequences S 1 , S 2 and the similarity scoring via s(x, y) and g(k).
 
-    - WARNING: Scoring Image missing
+<p align="center">
+<img src="./figures/exercise3_equations.svg" alt="metric1" width=70%/>
+ </p>
 
 **a)** Which optimization scheme (minimization/maximization) is to be applied?
 
