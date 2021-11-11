@@ -97,19 +97,27 @@ def previous_cells_correct(seq1, seq2, scoring, d_matrix, p_matrix, q_matrix, ce
         scoring["gap_extension"]
     )
 
+    print(cell)
     prev_cells = []
     cell_matrix, cell_coordinates = cell[0], cell[1]
 
     row, column = cell_coordinates
 
     if cell_matrix == "D":
-        cell_value = d_matrix[row][column]
-        char_first, char_second = seq1[row - 1], seq2[column - 1]
-        match_score_diag = match_score if char_first == char_second else mismatch_score
-        if cell_value == (d_matrix[row-1][column-1] + match_score_diag):
-            prev_cells.append(("D", (row-1, column-1)))
-        if cell_value == p_matrix[row, column]:
-            prev_cells.append(("P", (row, column)))
+        if row == 0:
+            prev_cells.append(("D", (row, column-1)))
+        elif column == 0:
+            prev_cells.append(("D", (row-1, column)))
+        else:
+            cell_value = d_matrix[row][column]
+            char_first, char_second = seq1[row - 1], seq2[column - 1]
+            match_score_diag = match_score if char_first == char_second else mismatch_score
+            if cell_value == (d_matrix[row-1][column-1] + match_score_diag):
+                prev_cells.append(("D", (row-1, column-1)))
+            if cell_value == p_matrix[row][column]:
+                prev_cells.append(("P", (row, column)))
+            if cell_value == q_matrix[row][column]:
+                prev_cells.append(("Q", (row, column)))
 
     elif cell_matrix == "P":
         cell_value = p_matrix[row][column]
@@ -121,10 +129,34 @@ def previous_cells_correct(seq1, seq2, scoring, d_matrix, p_matrix, q_matrix, ce
         cell_value = q_matrix[row][column]
         if cell_value == (d_matrix[row][column - 1] + gap_intro + gap_extend):
             prev_cells.append(("D", (row, column - 1)))
-        if cell_value == (p_matrix[row][column - 1] + gap_extend):
-            prev_cells.append(("P", (row, column - 1)))
+        if cell_value == (q_matrix[row][column - 1] + gap_extend):
+            prev_cells.append(("Q", (row, column - 1)))
 
     return prev_cells
+
+
+def build_all_traceback_paths_correct(seq1, seq2, scoring, d_matrix, p_matrix, q_matrix):
+    list_traceback_paths = []
+
+    cell = ("D", (len(d_matrix) - 1, len(d_matrix[0]) - 1))
+    frontier = [[cell]]
+
+    while frontier:
+        partial_path = frontier.pop()
+        last_cell_partial = partial_path[-1]
+        next_steps = previous_cells_correct(seq1, seq2, scoring, d_matrix, p_matrix, q_matrix, last_cell_partial)
+
+        for next_step in next_steps:
+            new_traceback_path = partial_path + [next_step]
+            if next_step == ("D", (0, 0)):
+                list_traceback_paths.append(new_traceback_path)
+            else:
+                frontier.append(new_traceback_path)
+
+        print("frontier", frontier)
+        print(list_traceback_paths)
+
+    return list_traceback_paths
 
 
 def main():
@@ -138,6 +170,9 @@ def main():
     print(p)
     print(q)
 
+    paths = build_all_traceback_paths_correct(s1, s2, scoring, d, p, q)
+    for p in paths:
+        print(p)
 
 if __name__ == "__main__":
     main()
