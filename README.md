@@ -38,7 +38,7 @@ expected to be equally performant or is one of them better than the other?
 Given the Waterman-Smith-Beyer algorithm with the following scoring function:
 
 <p align="center">
-<img src="./figures/exercise2_substitution.svg" alt="scoring" width=70%/>
+<img src="./figures/exercise2_substitution.svg" alt="scoring" width=30%/>
  </p>
 
 When aligning sequences of very different lengths the penalizing of *end gaps*, i.e unaligned sequence ends, dominates the alignmet score.
@@ -62,7 +62,7 @@ The algorithm by Waterman, Smith and Beyer can be adapted to treat end gaps with
 The adapted recursion formula is defined here:
 
 <p align="center">
-<img src="./figures/exercise2_recursion.svg" alt="recursion" width=70%/>
+<img src="./figures/exercise2_recursion.svg" alt="recursion" width=50%/>
  </p>
 
 **a)** Match the following descriptions with the correct recursion parts (see recursion figure, labels a-h):
