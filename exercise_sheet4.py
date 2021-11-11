@@ -2,8 +2,8 @@ from typing import List, Tuple
 
 
 """
-Within the algorithm of Waterman, Smith and Beyer arbitrarily large gaps are 
-considered. Thus, also the traceback has to investigate all gap sizes. 
+Within the algorithm of Waterman, Smith and Beyer arbitrarily large gaps are
+considered. Thus, also the traceback has to investigate all gap sizes.
 This can be done following two strategies:
 
  - check in increasing gap length (start with smallest gap)
@@ -51,6 +51,56 @@ def exercise_1b():
 
     return insertions_first, deletions_first, no, alternating
 
+def exercise_2a():
+    """
+    Exercise 2 a
+    Match the following descriptions with the correct recursion parts (see recursion figure, labels a-h):
+    1. if (i = n), k trailing end gaps going left
+    2. k normal gaps going up
+    3. j leading end gaps going left (inner block of gaps)
+    4. match/missmatch case
+    5. i leading end gaps going up (inner block of gaps)
+    6. outer block of end gaps in one sequence
+    7. if (j = m), k trailing end gaps going up
+    8. k normal gaps going left
+    """
+
+    recursion = {
+        "a" : 0,
+        "b" : 0,
+        "c" : 0,
+        "d" : 0,
+        "e" : 0,
+        "f" : 0,
+        "g" : 0,
+        "h" : 0
+    }
+
+    return recursion
+
+def exercise_2b():
+    """
+    Exercise 2 b
+    The scoring function s(x,y) is not a metric. Which of the following statements is correct?
+    Assign the correct True and False values to the provided options.
+    """
+
+    # The identity clause is violated
+    a = None
+
+    # The symetry clause is violated
+    b = None
+
+    # The triangle inequality clause is violated
+    c = None
+
+    # It is possible to create a metric scoring function leading to the same optimal alignments where end gaps are free
+    d = None
+
+    # For the given scoring function a match case is as favorable as a the leading end gap case
+    e = None
+
+    return a,b,c,d,e
 
 def exercise_3a():
     """

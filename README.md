@@ -20,7 +20,7 @@ also the traceback has to investigate all gap sizes. This can be done following 
 
 **a)** Given a gap function, are the strategies (measured in absolute runtime or number operations)
 expected to be equally performant or is one of them better than the other?
- 
+
  - [ ] both are equally performant.
  - [ ] checking in increasing direction performs better
  - [ ] checking in decreasing direction performs better
@@ -37,7 +37,54 @@ expected to be equally performant or is one of them better than the other?
 
 Given the Waterman-Smith-Beyer algorithm with the following scoring function:
 
-    - WARNING: Scoring Image missing
+<p align="center">
+<img src="./figures/exercise2_substitution.svg" alt="scoring" width=70%/>
+ </p>
+
+When aligning sequences of very different lengths the penalizing of *end gaps*, i.e unaligned sequence ends, dominates the alignmet score.
+
+We distinguish between leading and trailing end gaps (example):
+
+    A-CC-CC-G
+    -TCCGCCT-
+
+In this case the leading end gaps are:
+
+    A-
+    -T
+
+The trailing end gaps are:
+
+    -G
+    T-
+
+The algorithm by Waterman, Smith and Beyer can be adapted to treat end gaps with a score of 0.
+The adapted recursion formula is defined here:
+
+<p align="center">
+<img src="./figures/exercise2_recursion.svg" alt="recursion" width=70%/>
+ </p>
+
+**a)** Match the following descriptions with the correct recursion parts (see recursion figure, labels a-h):
+
+1. if (i = n), k trailing end gaps going left
+2. k normal gaps going up
+3. j leading end gaps going left (inner block of gaps)
+4. match/missmatch case
+5. i leading end gaps going up (inner block of gaps)
+6. outer block of end gaps in one sequence
+7. if (j = m), k trailing end gaps going up
+8. k normal gaps going left
+
+**b)** The scoring function s(x,y) is not a metric. Which of the following statements is correct?
+
+ - [ ] The identity clause is violated
+ - [ ] The symetry clause is violated
+ - [ ] The triangle inequality clause is violated
+ - [ ] It is possible to create a metric scoring function leading to the same optimal alignments where end gaps are free
+ - [ ] For the given scoring function a match case is as favorable as a the leading end gap case
+
+
 
 ### _Exercise 3 -  Gotoh Algorithm_
 
@@ -50,7 +97,7 @@ Consider the following sequences S 1 , S 2 and the similarity scoring via s(x, y
 **a)** Which optimization scheme (minimization/maximization) is to be applied?
 
 **b)** Fill the according dynamic programming matrices using the Gotoh algorithm!
-(Remember: D<sub>ij</sub> is the match/mismatch matrix. Q<sub>ij</sub> corresponds to gaps in S1 whilst 
+(Remember: D<sub>ij</sub> is the match/mismatch matrix. Q<sub>ij</sub> corresponds to gaps in S1 whilst
 P<sub>ij</sub> corresponds to gaps in S2)
 
 | D<sub>ij</sub>|   | T  | A  | C  | G  | C  | A  | G  | A   |

@@ -2,6 +2,16 @@ import pytest
 from exercise_sheet4 import *
 from math import inf
 
+def check_none(*args):
+    if None in args:
+        print("you have not filled in all the fields")
+        raise ValueError
+
+def check_zero_in_dict(d):
+    val = d.values()
+    if 0 in val:
+        print("you have not filled in all the fields")
+        raise ValueError
 
 def test_exercise_1a():
     """
@@ -29,6 +39,33 @@ def test_exercise_1b():
     assert no is False
     assert alternating is True
 
+def test_exercise_2a():
+    answer = exercise_2a()
+    check_zero_in_dict(answer)
+    assert answer["a"] == 6
+    assert answer["b"] == 4
+    assert answer["c"] == 8
+    assert answer["d"] == 2
+    assert answer["e"] == 3
+    assert answer["f"] == 5
+    assert answer["g"] == 1
+    assert answer["h"] == 7
+
+def test_exercise_2b():
+    """
+    The identity clause is violated: for x = y, s(x,y) = -1, which is not 0
+    The triangle inequality clause is violated: s(x,x) > s(x,x) + s(x,x), when x=y=z
+    It is not possible to create a metric. To create a metric we need to ensure the indentity clause is fulfilled,
+    by setting s(x,y) = 0, when x=y. Thereby, we would cuse the match case to be as favorable as the leading/trailing
+    end gap case. Setting s(x,y) = 0 leads to more optimal alignments, including an alignment
+    where both sequences are aligned to gaps.
+    """
+    a,b,c,d,e = exercise_2b()
+    assert a is True
+    assert b is False
+    assert c is True
+    assert d is False
+    assert e is False
 
 def test_exercise_3a():
     """
