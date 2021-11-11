@@ -153,10 +153,37 @@ def build_all_traceback_paths_correct(seq1, seq2, scoring, d_matrix, p_matrix, q
             else:
                 frontier.append(new_traceback_path)
 
-        print("frontier", frontier)
-        print(list_traceback_paths)
-
     return list_traceback_paths
+
+
+def build_alignment_correct(seq1, seq2, alignment_path):
+    align_seq1 = ""
+    align_seq2 = ""
+
+    alignment_path = alignment_path[::-1]
+
+    prev_cell = 0, 0
+    for cell in alignment_path[1:]:
+        cell_coord = cell[1]
+
+        prev_row, prev_column = prev_cell
+        row, column = cell_coord
+
+        if (row > prev_row) and (column > prev_column):
+            align_seq1 += seq1[row - 1]
+            align_seq2 += seq2[column - 1]
+
+        elif row > prev_row:
+            align_seq1 += seq1[row - 1]
+            align_seq2 += "-"
+
+        elif column > prev_column:
+            align_seq1 += "-"
+            align_seq2 += seq2[column - 1]
+
+        prev_cell = cell_coord
+
+    return align_seq1, align_seq2
 
 
 def main():
@@ -173,6 +200,12 @@ def main():
     paths = build_all_traceback_paths_correct(s1, s2, scoring, d, p, q)
     for p in paths:
         print(p)
+        al = build_alignment_correct(s1, s2, p)
+        al_seq1, al_seq2 = al
+        print(al_seq1)
+        print(al_seq2)
+        print("_____")
+
 
 if __name__ == "__main__":
     main()
