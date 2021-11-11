@@ -59,7 +59,7 @@ The trailing end gaps are:
     T-
 
 The algorithm by Waterman, Smith and Beyer can be adapted to treat end gaps with a score of 0.
-The adapted recursion formula is defined here:
+The adapted recursion formula is defined here, where n and m are the lengths of the respective sequences:
 
 <p align="center">
 <img src="./figures/exercise2_recursion.svg" alt="recursion" width=50%/>
