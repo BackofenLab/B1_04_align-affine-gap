@@ -89,6 +89,44 @@ def gotoh_forward_correct(seq1, seq2, scoring: Dict[str, int]):
     return d_matrix, p_matrix, q_matrix
 
 
+def previous_cells_correct(seq1, seq2, scoring, d_matrix, p_matrix, q_matrix, cell):
+    match_score, mismatch_score, gap_intro, gap_extend = (
+        scoring["match"],
+        scoring["mismatch"],
+        scoring["gap_introduction"],
+        scoring["gap_extension"]
+    )
+
+    prev_cells = []
+    cell_matrix, cell_coordinates = cell[0], cell[1]
+
+    row, column = cell_coordinates
+
+    if cell_matrix == "D":
+        cell_value = d_matrix[row][column]
+        char_first, char_second = seq1[row - 1], seq2[column - 1]
+        match_score_diag = match_score if char_first == char_second else mismatch_score
+        if cell_value == (d_matrix[row-1][column-1] + match_score_diag):
+            prev_cells.append(("D", (row-1, column-1)))
+        if cell_value == p_matrix[row, column]:
+            prev_cells.append(("P", (row, column)))
+
+    elif cell_matrix == "P":
+        cell_value = p_matrix[row][column]
+        if cell_value == (d_matrix[row-1][column] + gap_intro + gap_extend):
+            prev_cells.append(("D", (row-1, column)))
+        if cell_value == (p_matrix[row-1][column] + gap_extend):
+            prev_cells.append(("P", (row-1, column)))
+    else:
+        cell_value = q_matrix[row][column]
+        if cell_value == (d_matrix[row][column - 1] + gap_intro + gap_extend):
+            prev_cells.append(("D", (row, column - 1)))
+        if cell_value == (p_matrix[row][column - 1] + gap_extend):
+            prev_cells.append(("P", (row, column - 1)))
+
+    return prev_cells
+
+
 def main():
     scoring = {"match": 0, "mismatch": 1, "gap_introduction": 4, "gap_extension": 1}
     s1 = "CC"
