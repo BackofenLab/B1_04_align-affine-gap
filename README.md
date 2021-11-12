@@ -41,19 +41,19 @@ Given the Waterman-Smith-Beyer algorithm with the following scoring function:
 <img src="./figures/exercise2_substitution.svg" alt="scoring" width=30%/>
  </p>
 
-When aligning sequences of very different lengths the penalizing of *end gaps*, i.e unaligned sequence ends, dominates the alignmet score.
+When aligning sequences of very different lengths the penalizing of *leading and trailing gaps*, i.e unaligned sequence ends, dominates the alignment score.
 
-We distinguish between leading and trailing end gaps (example):
+We distinguish between leading and trailing gaps (example):
 
     A-CC-CC-G
     -TCCGCCT-
 
-In this case the leading end gaps are:
+In this case the leading gaps are:
 
     A-
     -T
 
-The trailing end gaps are:
+The trailing gaps are:
 
     -G
     T-
@@ -69,11 +69,11 @@ The adapted recursion formula is defined here, where n and m are the lengths of 
 
 1. if (i = n), k trailing end gaps in B
 2. k normal gaps in A
-3. j leading end gaps in B (inner block of gaps)
+3. j leading gaps in B (inner block of gaps)
 4. match/missmatch case
-5. i leading end gaps in A (inner block of gaps)
-6. outer block of end gaps in one sequence
-7. if (j = m), k trailing end gaps in A
+5. i leading gaps in A (inner block of gaps)
+6. outer block of gaps in one sequence
+7. if (j = m), k trailing gaps in A
 8. k normal gaps in B
 
 **b)** The scoring function s(x,y) is not a metric. Which of the following statements is correct?
