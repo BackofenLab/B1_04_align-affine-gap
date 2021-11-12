@@ -10,6 +10,10 @@ Course ILIAS: [web page link](https://ilias.uni-freiburg.de/ilias.php?ref_id=233
 ##### Exercise sheet 4: Sequence Alignment - affine gap costs
 ---
 
+**Please remember for the following exercises:** 
+
+If you are given two sequences S1 and S2 and you are creating a matrix, S1 represents the rows with index i (left) and S2 represents the columns with index j (top).
+
 ### _Exercise 1 -  Waterman-Smith-Beyer traceback_
 
 Within the algorithm of Waterman, Smith and Beyer arbitrarily large gaps are considered. Thus,
@@ -67,7 +71,7 @@ The adapted recursion formula is defined here, where n and m are the lengths of 
 
 **a)** Match the following descriptions with the correct recursion parts (see recursion figure, labels (a)-(h)):
 
-1. if (i = n), k trailing end gaps in B
+1. if (i = n), k trailing gaps in B
 2. k normal gaps in A
 3. j leading gaps in B (inner block of gaps)
 4. match/missmatch case
