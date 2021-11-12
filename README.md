@@ -65,16 +65,16 @@ The adapted recursion formula is defined here, where n and m are the lengths of 
 <img src="./figures/exercise2_recursion.svg" alt="recursion" width=50%/>
  </p>
 
-**a)** Match the following descriptions with the correct recursion parts (see recursion figure, labels a-h):
+**a)** Match the following descriptions with the correct recursion parts (see recursion figure, labels (a)-(h)):
 
-1. if (i = n), k trailing end gaps in S1
-2. k normal gaps in S2
-3. j leading end gaps in S1 (inner block of gaps)
+1. if (i = n), k trailing end gaps in a
+2. k normal gaps in b
+3. j leading end gaps in a (inner block of gaps)
 4. match/missmatch case
-5. i leading end gaps in S2 (inner block of gaps)
+5. i leading end gaps in b (inner block of gaps)
 6. outer block of end gaps in one sequence
-7. if (j = m), k trailing end gaps in S2
-8. k normal gaps in S1
+7. if (j = m), k trailing end gaps in b
+8. k normal gaps in a
 
 **b)** The scoring function s(x,y) is not a metric. Which of the following statements is correct?
 
@@ -139,7 +139,7 @@ P<sub>ij</sub> corresponds to gaps in S2)
 
 ### _Exercise 4 - Programming assignment: Implementation of Gotoh algorithm_
 
-The programming assignment will use a scoring function as parameters which is a dictionary with 4 entries. 
+The programming assignment will use a scoring function as parameters which is a dictionary with 4 entries.
 This will look as follows:
 
 <p align="center">
@@ -150,7 +150,7 @@ scoring = {"match": -1,
 </p>
 
 You do not need to write the scoring function by yourself. However, make sure you use the correct keys in your implementation.
-An example will be provided in the skeleton of part *a)*. 
+An example will be provided in the skeleton of part *a)*.
 
 Despite most implementations of Gotoh will use a maximization at the optimization step, we will stick to the lecture and use minimization (score(match) < score(gap)). Also, have a look at return typehints in the skeleton functions and read carefully how the results should be returned.
 
@@ -175,6 +175,6 @@ The function should output a list of tuples of all possible previous cells. The 
 
 **h)** Implement the function build_all_traceback_paths() which builds all possible traceback paths. This function should return a list of possible paths which themselves are a list of tuples (matrix, (row, column)). The ordering must be decreasing. Meaning paths should start in the lower right corner of the matrix D.
 
-**i)** Implement the function build_alignment() which takes two sequences and a path as a list of tuples. This function should return an alignment tuple. Meaning two strings of same length with introduced gaps. 
+**i)** Implement the function build_alignment() which takes two sequences and a path as a list of tuples. This function should return an alignment tuple. Meaning two strings of same length with introduced gaps.
 
 ---
