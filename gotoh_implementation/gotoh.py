@@ -68,11 +68,11 @@ def gotoh_forward_correct(seq1, seq2, scoring: Dict[str, int]):
     d_matrix, p_matrix, q_matrix = gotoh_init_correct(seq1, seq2, scoring)
     for row_index, row_d in enumerate(d_matrix[1:], 1):
         for column_index, column_d in enumerate(row_d[1:], 1):
-            p_d = d_matrix[row_index-1][column_index] + gap_intro + gap_extend
+            p_d = d_matrix[row_index-1][column_index] + gap_intro
             p_p = p_matrix[row_index-1][column_index] + gap_extend
             p_matrix[row_index][column_index] = min(p_d, p_p)
 
-            q_d = d_matrix[row_index][column_index-1] + gap_intro + gap_extend
+            q_d = d_matrix[row_index][column_index-1] + gap_intro
             q_q = q_matrix[row_index][column_index - 1] + gap_extend
             q_matrix[row_index][column_index] = min(q_d, q_q)
 
@@ -121,13 +121,13 @@ def previous_cells_correct(seq1, seq2, scoring, d_matrix, p_matrix, q_matrix, ce
 
     elif cell_matrix == "P":
         cell_value = p_matrix[row][column]
-        if cell_value == (d_matrix[row-1][column] + gap_intro + gap_extend):
+        if cell_value == (d_matrix[row-1][column] + gap_intro):
             prev_cells.append(("D", (row-1, column)))
         if cell_value == (p_matrix[row-1][column] + gap_extend):
             prev_cells.append(("P", (row-1, column)))
     else:
         cell_value = q_matrix[row][column]
-        if cell_value == (d_matrix[row][column - 1] + gap_intro + gap_extend):
+        if cell_value == (d_matrix[row][column - 1] + gap_intro):
             prev_cells.append(("D", (row, column - 1)))
         if cell_value == (q_matrix[row][column - 1] + gap_extend):
             prev_cells.append(("Q", (row, column - 1)))
@@ -187,12 +187,17 @@ def build_alignment_correct(seq1, seq2, alignment_path):
 
 
 def main():
-    scoring = {"match": 0, "mismatch": 1, "gap_introduction": 4, "gap_extension": 1}
-    s1 = "CC"
-    s2 = "ACCT"
+    scoring = {"match": -1, "mismatch": 0, "gap_introduction": 4, "gap_extension": 1}
+    s1 = "TCCGA"
+    s2 = "TACGCAGA"
     d, p, q = gotoh_init_correct(s1, s2, scoring)
     d, p, q = gotoh_forward_correct(s1, s2, scoring)
 
+    print("_____")
+    for matrix in [d, p, q]:
+        for row in matrix:
+            print(row)
+        print("_____")
     print(d)
     print(p)
     print(q)
