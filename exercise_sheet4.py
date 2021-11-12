@@ -55,13 +55,13 @@ def exercise_2a():
     """
     Exercise 2 a
     Match the following descriptions with the correct recursion parts (see recursion figure, labels (a)-(h)):
-    1. if (i = n), k trailing end gaps in B
+    1. if (i = n), k trailing gaps in B
     2. k normal gaps in A
-    3. j leading end gaps in B (inner block of gaps)
+    3. j leading gaps in B (inner block of gaps)
     4. match/missmatch case
-    5. i leading end gaps in A (inner block of gaps)
-    6. outer block of end gaps in one sequence
-    7. if (j = m), k trailing end gaps in A
+    5. i leading gaps in A (inner block of gaps)
+    6. outer block of gaps in one sequence
+    7. if (j = m), k trailing gaps in A
     8. k normal gaps in B
     """
 
