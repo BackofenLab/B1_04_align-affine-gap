@@ -1,0 +1,174 @@
+{
+  "tests": [
+    {
+      "name": "Exercise 1 - Waterman-Smith-Beyer traceback: item a",
+      "setup": "sudo -H pip3 install pytest --quiet",
+      "run": "pytest -s ./tests/test_exercise_sheet3.py -k '1a' > tmp",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 6
+    },
+    {
+      "name": "Exercise 1 - Waterman-Smith-Beyer traceback: item b",
+      "setup": "",
+      "run": "pytest -s ./tests/test_exercise_sheet3.py -k '1b' > tmp",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 6
+    },
+    {
+      "name": "Exercise 2 - Waterman-Smith-Beyer with free end gaps: item a",
+      "setup": "",
+      "run": "pytest -s ./tests/test_exercise_sheet3.py -k '2a' > tmp",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 4
+    },
+    {
+      "name": "Exercise 2 - Waterman-Smith-Beyer with free end gaps: item b",
+      "setup": "",
+      "run": "pytest -s ./tests/test_exercise_sheet3.py -k '2b' > tmp",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 4
+    },
+    {
+      "name": "Exercise 3 - Gotoh Algorithm: item a",
+      "setup": "",
+      "run": "pytest -s ./tests/test_exercise_sheet3.py -k '3a' > tmp",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 3
+    },
+    {
+      "name": "Exercise 3 - Gotoh Algorithm: item b",
+      "setup": "",
+      "run": "pytest -s ./tests/test_exercise_sheet3.py -k '3b' > tmp",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 3
+    },
+    {
+      "name": "Exercise 3 - Gotoh Algorithm: item c",
+      "setup": "",
+      "run": "pytest -s ./tests/test_exercise_sheet3.py -k '3c' > tmp",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 3
+    },
+    {
+      "name": "Exercise 3 - Hirschberg recursion: item d",
+      "setup": "",
+      "run": "pytest -s ./tests/test_exercise_sheet3.py -k '3d' > tmp",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 3
+    },
+    {
+      "name": "Exercise 4 - programming assignment: item a",
+      "setup": "",
+      "run": "pytest -s --no-header --tb=no -rN -x ./tests/test_exercise_sheet3.py -k '4a'",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 3
+    },
+    {
+      "name": "Exercise 4 - programming assignment: item b",
+      "setup": "",
+      "run": "pytest -s --no-header --tb=no -rN -x ./tests/test_exercise_sheet3.py -k '4b'",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 5
+    },
+     {
+      "name": "Exercise 4 - programming assignment: item c",
+      "setup": "",
+      "run": "pytest -s --no-header --tb=no -rN -x ./tests/test_exercise_sheet3.py -k '4c'",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 5
+    },
+     {
+      "name": "Exercise 4 - programming assignment: item d",
+      "setup": "",
+      "run": "pytest -s --no-header --tb=no -rN -x ./tests/test_exercise_sheet3.py -k '4d'",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 5
+    },
+     {
+      "name": "Exercise 4 - programming assignment: item e",
+      "setup": "",
+      "run": "pytest -s --no-header --tb=no -rN -x ./tests/test_exercise_sheet3.py -k '4e'",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 5
+    },
+     {
+      "name": "Exercise 4 - programming assignment: item f",
+      "setup": "",
+      "run": "pytest -s --no-header --tb=no -rN -x ./tests/test_exercise_sheet3.py -k '4f'",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Exercise 4 - programming assignment: item g",
+      "setup": "",
+      "run": "pytest -s --no-header --tb=no -rN -x ./tests/test_exercise_sheet3.py -k '4g'",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+         {
+      "name": "Exercise 4 - programming assignment: item h",
+      "setup": "",
+      "run": "pytest -s --no-header --tb=no -rN -x ./tests/test_exercise_sheet3.py -k '4h'",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 15
+    },
+    {
+      "name": "Exercise 4 - programming assignment: item i",
+      "setup": "",
+      "run": "pytest -s --no-header --tb=no -rN -x ./tests/test_exercise_sheet3.py -k '4i'",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    }
+  ]
+}
