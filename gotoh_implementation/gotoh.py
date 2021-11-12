@@ -83,9 +83,6 @@ def gotoh_forward_correct(seq1, seq2, scoring: Dict[str, int]):
             d_q = p_matrix[row_index][column_index]
             d_matrix[row_index][column_index] = min(d_diagonal, d_p, d_q)
 
-            print("matrix", row_index, column_index)
-            print(d_diagonal, d_p, d_q, )
-
     return d_matrix, p_matrix, q_matrix
 
 
@@ -97,7 +94,6 @@ def previous_cells_correct(seq1, seq2, scoring, d_matrix, p_matrix, q_matrix, ce
         scoring["gap_extension"]
     )
 
-    print(cell)
     prev_cells = []
     cell_matrix, cell_coordinates = cell[0], cell[1]
 
