@@ -12,7 +12,7 @@ Course ILIAS: [web page link](https://ilias.uni-freiburg.de/ilias.php?ref_id=233
 
 **Please remember for the following exercises:** 
 
-If you are given two sequences S1 and S2 and you are creating a matrix, S1 represents the rows with index i (left) and S2 represents the columns with index j (top).
+If you are given two sequences A and B and you are creating a matrix, A represents the rows with index i (left) and B represents the columns with index j (top).
 
 ### _Exercise 1 -  Waterman-Smith-Beyer traceback_
 
