@@ -425,9 +425,9 @@ def test_exercise_4g(seq1, seq2, scoring, cell):
 )
 def test_exercise_4h(seq1, seq2, scoring):
     d, p, q = gotoh_forward_correct(seq1, seq2, scoring)
-    expected_paths = build_all_traceback_paths_correct(seq1, seq2, scoring, d, q, p)
+    expected_paths = build_all_traceback_paths_correct(seq1, seq2, scoring, d, p, q)
     expected_paths = [tuple(x) for x in expected_paths]
-    actual_paths = build_all_traceback_paths(seq1, seq2, scoring, d, q, p)
+    actual_paths = build_all_traceback_paths(seq1, seq2, scoring, d, p, q)
     actual_paths = [tuple(x) for x in actual_paths]
     if actual_paths != expected_paths:
         print(
@@ -462,7 +462,7 @@ def test_exercise_4h(seq1, seq2, scoring):
 def test_exercise_4i(seq1, seq2, scoring):
     d, p, q = gotoh_forward_correct(seq1, seq2, scoring)
     expected_paths = build_all_traceback_paths_correct(
-        seq1, seq2, scoring, d, q, p)
+        seq1, seq2, scoring, d, p, q)
     for traceback_path in expected_paths:
         expected_alignment = build_alignment_correct(seq1, seq2,
                                                      traceback_path)
