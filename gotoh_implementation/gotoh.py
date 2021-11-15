@@ -68,19 +68,19 @@ def gotoh_forward_correct(seq1, seq2, scoring: Dict[str, int]):
     d_matrix, p_matrix, q_matrix = gotoh_init_correct(seq1, seq2, scoring)
     for row_index, row_d in enumerate(d_matrix[1:], 1):
         for column_index, column_d in enumerate(row_d[1:], 1):
-            p_d = d_matrix[row_index-1][column_index] + gap_intro
+            p_d = d_matrix[row_index-1][column_index] + gap_intro + gap_extend
             p_p = p_matrix[row_index-1][column_index] + gap_extend
             p_matrix[row_index][column_index] = min(p_d, p_p)
 
-            q_d = d_matrix[row_index][column_index-1] + gap_intro
+            q_d = d_matrix[row_index][column_index-1] + gap_intro + gap_extend
             q_q = q_matrix[row_index][column_index - 1] + gap_extend
             q_matrix[row_index][column_index] = min(q_d, q_q)
 
             char_seq_1, char_seq_2 = seq1[row_index - 1], seq2[column_index - 1]
-            no_gap_score = match_score if char_seq_1 == char_seq_2 else mismatch_score
+            no_gap_score = match_score if (char_seq_1 == char_seq_2) else mismatch_score
             d_diagonal = d_matrix[row_index - 1][column_index - 1] + no_gap_score
             d_p = p_matrix[row_index][column_index]
-            d_q = p_matrix[row_index][column_index]
+            d_q = q_matrix[row_index][column_index]
             d_matrix[row_index][column_index] = min(d_diagonal, d_p, d_q)
 
     return d_matrix, p_matrix, q_matrix
@@ -185,7 +185,7 @@ def build_alignment_correct(seq1, seq2, alignment_path):
 def main():
     scoring = {"match": -1, "mismatch": 0, "gap_introduction": 4, "gap_extension": 1}
     s1 = "TCCGA"
-    s2 = "TACGCAGA"
+    s2 = "TACGCGC"
     d, p, q = gotoh_init_correct(s1, s2, scoring)
     d, p, q = gotoh_forward_correct(s1, s2, scoring)
 
@@ -194,9 +194,6 @@ def main():
         for row in matrix:
             print(row)
         print("_____")
-    print(d)
-    print(p)
-    print(q)
 
     paths = build_all_traceback_paths_correct(s1, s2, scoring, d, p, q)
     for p in paths:
