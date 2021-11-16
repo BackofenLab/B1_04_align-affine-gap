@@ -427,8 +427,10 @@ def test_exercise_4h(seq1, seq2, scoring):
     d, p, q = gotoh_forward_correct(seq1, seq2, scoring)
     expected_paths = build_all_traceback_paths_correct(seq1, seq2, scoring, d, p, q)
     expected_paths = [tuple(x) for x in expected_paths]
+    expected_paths = set(expected_paths)
     actual_paths = build_all_traceback_paths(seq1, seq2, scoring, d, p, q)
     actual_paths = [tuple(x) for x in actual_paths]
+    actual_paths = set(actual_paths)
     if actual_paths != expected_paths:
         print(
             f"\nFor the Test case:\nS1: {seq1}\nS2: {seq2}\nscoring: {scoring}")
