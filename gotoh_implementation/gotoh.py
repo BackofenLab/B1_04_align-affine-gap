@@ -117,13 +117,13 @@ def previous_cells_correct(seq1, seq2, scoring, d_matrix, p_matrix, q_matrix, ce
 
     elif cell_matrix == "P":
         cell_value = p_matrix[row][column]
-        if cell_value == (d_matrix[row-1][column] + gap_intro):
+        if cell_value == (d_matrix[row-1][column] + gap_intro + gap_extend):
             prev_cells.append(("D", (row-1, column)))
         if cell_value == (p_matrix[row-1][column] + gap_extend):
             prev_cells.append(("P", (row-1, column)))
     else:
         cell_value = q_matrix[row][column]
-        if cell_value == (d_matrix[row][column - 1] + gap_intro):
+        if cell_value == (d_matrix[row][column - 1] + gap_intro + gap_extend):
             prev_cells.append(("D", (row, column - 1)))
         if cell_value == (q_matrix[row][column - 1] + gap_extend):
             prev_cells.append(("Q", (row, column - 1)))
@@ -184,8 +184,8 @@ def build_alignment_correct(seq1, seq2, alignment_path):
 
 def main():
     scoring = {"match": -1, "mismatch": 0, "gap_introduction": 4, "gap_extension": 1}
-    s1 = "TCCGA"
-    s2 = "TACGCGC"
+    s1 = "TACAGGGGTAGAGGAGCTACAAAAGTGATG"
+    s2 = "AAACTCCTATGGC"
     d, p, q = gotoh_init_correct(s1, s2, scoring)
     d, p, q = gotoh_forward_correct(s1, s2, scoring)
 
@@ -196,6 +196,7 @@ def main():
         print("_____")
 
     paths = build_all_traceback_paths_correct(s1, s2, scoring, d, p, q)
+    print(paths)
     for p in paths:
         print(p)
         al = build_alignment_correct(s1, s2, p)
