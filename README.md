@@ -10,7 +10,7 @@ Course ILIAS: [web page link](https://ilias.uni-freiburg.de/ilias.php?ref_id=233
 ##### Exercise sheet 4: Sequence Alignment - affine gap costs
 ---
 
-**Please remember for the following exercises:** 
+**Please remember for the following exercises:**
 
 If you are given two sequences A and B and you are creating a matrix, A represents the rows with index i (left) and B represents the columns with index j (top).
 
@@ -71,14 +71,14 @@ The adapted recursion formula is defined here, where n and m are the lengths of 
 
 **a)** Match the following descriptions with the correct recursion parts (see recursion figure, labels (a)-(h)):
 
-1. if (i = n), k trailing gaps in B
-2. k normal gaps in A
-3. j leading gaps in B (inner block of gaps)
+1. if (i = n), k trailing gaps in A
+2. k normal gaps in B
+3. j leading gaps in A (inner block of gaps)
 4. match/missmatch case
-5. i leading gaps in A (inner block of gaps)
+5. i leading gaps in B (inner block of gaps)
 6. outer block of gaps in one sequence
-7. if (j = m), k trailing gaps in A
-8. k normal gaps in B
+7. if (j = m), k trailing gaps in B
+8. k normal gaps in A
 
 **b)** The scoring function s(x,y) is not a metric. Which of the following statements is correct?
 
