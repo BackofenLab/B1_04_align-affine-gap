@@ -1,88 +1,8 @@
 {
   "tests": [
     {
-      "name": "Exercise 1 - Waterman-Smith-Beyer traceback: item a",
-      "setup": "sudo -H pip3 install pytest --quiet",
-      "run": "pytest -s ./tests/test_exercise_sheet4.py -k '1a' > tmp",
-      "input": "",
-      "output": "",
-      "comparison": "included",
-      "timeout": 10,
-      "points": 6
-    },
-    {
-      "name": "Exercise 1 - Waterman-Smith-Beyer traceback: item b",
-      "setup": "",
-      "run": "pytest -s ./tests/test_exercise_sheet4.py -k '1b' > tmp",
-      "input": "",
-      "output": "",
-      "comparison": "included",
-      "timeout": 10,
-      "points": 6
-    },
-    {
-      "name": "Exercise 2 - Waterman-Smith-Beyer with free end gaps: item a",
-      "setup": "",
-      "run": "pytest -s ./tests/test_exercise_sheet4.py -k '2a' > tmp",
-      "input": "",
-      "output": "",
-      "comparison": "included",
-      "timeout": 10,
-      "points": 4
-    },
-    {
-      "name": "Exercise 2 - Waterman-Smith-Beyer with free end gaps: item b",
-      "setup": "",
-      "run": "pytest -s ./tests/test_exercise_sheet4.py -k '2b' > tmp",
-      "input": "",
-      "output": "",
-      "comparison": "included",
-      "timeout": 10,
-      "points": 4
-    },
-    {
-      "name": "Exercise 3 - Gotoh Algorithm: item a",
-      "setup": "",
-      "run": "pytest -s ./tests/test_exercise_sheet4.py -k '3a' > tmp",
-      "input": "",
-      "output": "",
-      "comparison": "included",
-      "timeout": 10,
-      "points": 3
-    },
-    {
-      "name": "Exercise 3 - Gotoh Algorithm: item b",
-      "setup": "",
-      "run": "pytest -s ./tests/test_exercise_sheet4.py -k '3b' > tmp",
-      "input": "",
-      "output": "",
-      "comparison": "included",
-      "timeout": 10,
-      "points": 3
-    },
-    {
-      "name": "Exercise 3 - Gotoh Algorithm: item c",
-      "setup": "",
-      "run": "pytest -s ./tests/test_exercise_sheet4.py -k '3c' > tmp",
-      "input": "",
-      "output": "",
-      "comparison": "included",
-      "timeout": 10,
-      "points": 3
-    },
-    {
-      "name": "Exercise 3 - Hirschberg recursion: item d",
-      "setup": "",
-      "run": "pytest -s ./tests/test_exercise_sheet4.py -k '3d' > tmp",
-      "input": "",
-      "output": "",
-      "comparison": "included",
-      "timeout": 10,
-      "points": 3
-    },
-    {
       "name": "Exercise 4 - programming assignment: item a",
-      "setup": "",
+      "setup": "sudo -H pip3 install -r requirements.txt --quiet",
       "run": "pytest -s --no-header --tb=no -rN -x ./tests/test_exercise_sheet4.py -k '4a'",
       "input": "",
       "output": "",
